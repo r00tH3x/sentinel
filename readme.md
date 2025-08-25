@@ -43,7 +43,7 @@ pip install requests beautifulsoup4 colorama
 
 ### Clone Repository
 ```bash
-git clone https://github.com/username/sentinel.git
+git clone https://github.com/r00tH3x/sentinel.git
 cd sentinel
 ```
 
