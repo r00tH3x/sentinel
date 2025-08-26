@@ -7,7 +7,7 @@
 ---
 
 ## 📌 Ringkasan singkat
-Sentinel v3 adalah framework reconnaissance dan vulnerability discovery yang menggabungkan: enhanced subdomain discovery, content discovery, vulnerability heuristics, network intelligence, dan integrasi API pihak ketiga (Shodan, VirusTotal, Hunter.io, SecurityTrails, dll.). Tool ini dirancang untuk riset & OSINT di lingkungan yang **memiliki izin**. citeturn2view0turn4view0
+Sentinel v3 adalah framework reconnaissance dan vulnerability discovery yang menggabungkan: enhanced subdomain discovery, content discovery, vulnerability heuristics, network intelligence, dan integrasi API pihak ketiga (Shodan, VirusTotal, Hunter.io, SecurityTrails, dll.). Tool ini dirancang untuk riset & OSINT di lingkungan yang **memiliki izin**. 
 
 > ⚠️ **Penting:** Jangan gunakan untuk mengakses, memindai, atau memeriksa sistem tanpa izin. Pelanggaran dapat berakibat hukum.
 
@@ -27,13 +27,13 @@ Sentinel v3 adalah framework reconnaissance dan vulnerability discovery yang men
 ---
 
 ## ✨ 1) Fitur Utama (ringkasan) 🎯
-- Enhanced Subdomain Discovery (CRT, Wayback, RapidDNS, SecurityTrails, crt.sh, Google dorking, built-in wordlists). citeturn2view0
-- Content discovery & directory bruteforce (built-in wordlist + backup file heuristics). citeturn2view0
-- Vulnerability heuristics: SSL/TLS analysis, security header checks, subdomain takeover signatures, secret/key discovery in JS, and detection heuristics for common web vulns. citeturn2view0
-- Network reconnaissance & WHOIS/DNS enrichment. citeturn4view0
-- Email harvesting (Hunter.io + passive sources). citeturn2view0
-- API integrations: Shodan, VirusTotal, Hunter.io, SecurityTrails (premium — optional) and several free sources (RapidDNS, AlienVault OTX, ThreatCrowd, HackerTarget). citeturn2view0turn3search0turn3search1turn3search2turn3search3
-- Output & reporting: JSON, CSV, TXT (timestamped) and HTML report template. citeturn2view0
+- Enhanced Subdomain Discovery (CRT, Wayback, RapidDNS, SecurityTrails, crt.sh, Google dorking, built-in wordlists). 
+- Content discovery & directory bruteforce (built-in wordlist + backup file heuristics). 
+- Vulnerability heuristics: SSL/TLS analysis, security header checks, subdomain takeover signatures, secret/key discovery in JS, and detection heuristics for common web vulns. 
+- Network reconnaissance & WHOIS/DNS enrichment.
+- Email harvesting (Hunter.io + passive sources).
+- API integrations: Shodan, VirusTotal, Hunter.io, SecurityTrails (premium — optional) and several free sources (RapidDNS, AlienVault OTX, ThreatCrowd, HackerTarget).
+- Output & reporting: JSON, CSV, TXT (timestamped) and HTML report template.
 
 ---
 
@@ -54,15 +54,15 @@ Sentinel menyimpan konfigurasi API di dict `CONFIG` di `sentinel.py`, dan juga m
 1. **Sunting langsung `CONFIG`** (baris awal file):
    - `SHODAN_API_KEY`, `VIRUSTOTAL_API_KEY`, `HUNTER_API_KEY`, `SECURITYTRAILS_API_KEY`.
 2. **Gunakan subcommand `config`** (CLI helper) untuk menyimpan kunci ke `sentinel_config.json`:
-   - Contoh: `python sentinel.py config --shodan YOUR_KEY --hunter YOUR_KEY` (tool akan menyimpan file config dan memperbarui runtime). citeturn4view0
+   - Contoh: `python sentinel.py config --shodan YOUR_KEY --hunter YOUR_KEY` (tool akan menyimpan file config dan memperbarui runtime). 
 
 ### Ringkasan API yang didukung & peranannya
-- **Shodan** — network/device intelligence & port/service data (opsional, premium). citeturn3search0
-- **VirusTotal** — domain/IP enrichment, URL scans, reputation data. citeturn3search1
-- **Hunter.io** — email harvesting & contact discovery (domain search). citeturn3search2
-- **SecurityTrails** — DNS/subdomain history & enumerasi (premium). citeturn3search3
+- **Shodan** — network/device intelligence & port/service data (opsional, premium).
+- **VirusTotal** — domain/IP enrichment, URL scans, reputation data.
+- **Hunter.io** — email harvesting & contact discovery (domain search). 
+- **SecurityTrails** — DNS/subdomain history & enumerasi (premium). 
 
-> ⚠️ Perhatikan batasan penggunaan & rate-limit operator API tersebut — baca dokumentasi masing-masing sebelum pemakaian. citeturn3search0turn3search1
+> ⚠️ Perhatikan batasan penggunaan & rate-limit operator API tersebut — baca dokumentasi masing-masing sebelum pemakaian. 
 
 ---
 
@@ -72,21 +72,21 @@ Sentinel menyimpan konfigurasi API di dict `CONFIG` di `sentinel.py`, dan juga m
 ### A. Logger (`Logger`)
 - Fungsi utama: menyimpan hasil ke `sentinel_output/`.
 - Format: JSON (`filename_timestamp.json`), CSV (`filename_timestamp.csv`) dan TXT (`filename_timestamp.txt`).
-- Contoh penggunaan: `logger.save_json(data, "subdomains")` menyimpan file bernama `subdomains_YYYYmmdd_HHMMSS.json`. citeturn2view0
+- Contoh penggunaan: `logger.save_json(data, "subdomains")` menyimpan file bernama `subdomains_YYYYmmdd_HHMMSS.json`.
 
 ### B. API Client (`APIClient`)
 - Abstraksi panggilan ke layanan eksternal (Shodan, VirusTotal, SecurityTrails, Hunter.io) serta beberapa pengambilan data gratis (RapidDNS, AlienVault OTX, ThreatCrowd).
-- Setiap method akan: memeriksa ketersediaan API key di `CONFIG`, melakukan request, lalu mengembalikan data yang diproses (mis. list subdomain, list email, matches dari Shodan). Jika API gagal/error, method akan mengembalikan struktur kosong dan mencetak error. citeturn2view0
+- Setiap method akan: memeriksa ketersediaan API key di `CONFIG`, melakukan request, lalu mengembalikan data yang diproses (mis. list subdomain, list email, matches dari Shodan). Jika API gagal/error, method akan mengembalikan struktur kosong dan mencetak error. 
 
 ### C. EnhancedSubdomainScanner
-- **Sumber**: kombinasi wordlist bruteforce (built-in), crt.sh (cert transparency), Wayback Machine, Google dorking, RapidDNS, DNSDumpster (parsing HTML), SecurityTrails, AlienVault OTX, ThreatCrowd, HackerTarget, sonar.omnisint & Riddler-like sources. citeturn2view0
+- **Sumber**: kombinasi wordlist bruteforce (built-in), crt.sh (cert transparency), Wayback Machine, Google dorking, RapidDNS, DNSDumpster (parsing HTML), SecurityTrails, AlienVault OTX, ThreatCrowd, HackerTarget, sonar.omnisint & Riddler-like sources. 
 - **Langkah umum**:
   1. Query certificate transparency (`crt.sh`) untuk entri subdomain.
   2. Query Wayback Machine / archived URLs.
   3. Query sejumlah layanan API/free-sources (RapidDNS, OTX, etc.).
   4. DNS bruteforce menggunakan `SUBDOMAIN_WORDLIST` (multi-threaded).
   5. Validasi hasil dengan DNS lookup dan deduplikasi.
-- **Output**: list objek `{ 'subdomain': <str>, 'ips': [<ip>, ...], 'method': <string> }` dan file JSON/TXT yang disimpan melalui `Logger`. citeturn2view0
+- **Output**: list objek `{ 'subdomain': <str>, 'ips': [<ip>, ...], 'method': <string> }` dan file JSON/TXT yang disimpan melalui `Logger`. 
 
 ### D. EnhancedContentScanner
 - **Tujuan**: temukan aset web (login pages, admin panels, file backups, config files, .git, .env, dll.).
@@ -104,7 +104,7 @@ Sentinel menyimpan konfigurasi API di dict `CONFIG` di `sentinel.py`, dan juga m
   - Subdomain takeover: mencari tanda (fingerprints) dari penyedia layanan yang meninggalkan halaman default (GitHub Pages, Heroku, S3 bucket, Fastly, Shopify, dll.).  
   - Secret discovery: memindai sumber JS/halaman untuk pola yang mungkin menunjukkan API keys, tokens, private keys, AWS keys, JWT-like strings, dsb.  
   - Heuristics untuk kerentanan web umum (otomatis mendeteksi indikasi SQLi, XSS, Directory Traversal berdasarkan pola respons/error signatures).
-- **Bagaimana hasilnya disajikan**: setiap temuan disimpan sebagai object dengan _fields_ minimal: `type`, `severity` (High/Medium/Low), `description`, `url`, `evidence` (potongan teks). Semua temuan dikumpulkan ke `vulnerabilities` list dan disimpan oleh `Logger`. citeturn2view0
+- **Bagaimana hasilnya disajikan**: setiap temuan disimpan sebagai object dengan _fields_ minimal: `type`, `severity` (High/Medium/Low), `description`, `url`, `evidence` (potongan teks). Semua temuan dikumpulkan ke `vulnerabilities` list dan disimpan oleh `Logger`. 
 
 > ⚠️ NOTE: beberapa pemeriksaan mengirim permintaan GET/HTTP ke target (non-intrusive by design), tetapi tetap dapat dianggap invasive. Gunakan **hanya pada target yang Anda miliki izin**.
 
@@ -118,12 +118,12 @@ Sentinel menyediakan beberapa mode, termasuk `network`, `subdomain`, `email`, `s
 5. Vulnerability assessment (SSL, headers, secrets, heuristics)
 6. Generate comprehensive report (JSON/CSV/HTML)
 
-Semua fase di atas disinkronkan otomatis ketika `python sentinel.py full -d example.com` dijalankan. citeturn4view0
+Semua fase di atas disinkronkan otomatis ketika `python sentinel.py full -d example.com` dijalankan.
 
 ---
 
 ## ▶️ 5) Contoh Penggunaan / CLI (singkat) ⚙️
-(Tangkapan contoh langsung dari `sentinel.py` — gunakan ini hanya di lingkungan lab/berizin). citeturn4view0
+(Tangkapan contoh langsung dari `sentinel.py` — gunakan ini hanya di lingkungan lab/berizin). 
 
 ```bash
 # Recon / subdomain discovery
@@ -178,9 +178,9 @@ A — Periksa koneksi, rate limits API, dan firewall/IDS di jaringan target (ing
 ---
 
 ## 🔚 Penutup
-Terima kasih telah menggunakan **Sentinel v3** — tool ini kuat untuk OSINT & research bila dipakai secara etis. Ingin README lebih ringkas, atau versi yang siap untuk README.md di repo (dengan badges, GIF demo, dan contoh output file)? Ketik aja — gue siap edit! ✨
+Terima kasih telah menggunakan **Sentinel v3** — tool ini kuat untuk OSINT & research bila dipakai secara etis!!✨
 
 ---
 
-*References & source snippets pulled from sentinel.py and relevant API docs.* citeturn2view0turn4view0turn3search0turn3search1turn3search2turn3search3
+*References & source snippets pulled from sentinel.py and relevant API docs.* 
 
