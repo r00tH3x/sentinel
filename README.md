@@ -154,7 +154,7 @@ python sentinel.py config --shodan YOUR_SHODAN_KEY --hunter YOUR_HUNTER_KEY
 
 ## 🔐 7) Etika, Rate Limits & Privasi
 - **Hanya** gunakan pada target yang Anda miliki izin untuk menguji. 🔒
-- Periksa _Terms of Service_ tiap API (Shodan, VirusTotal, Hunter, SecurityTrails). Be mindful of rate limits — Sentinel tidak magically bypass rate limits. citeturn3search0turn3search1
+- Periksa _Terms of Service_ tiap API (Shodan, VirusTotal, Hunter, SecurityTrails). Be mindful of rate limits — Sentinel tidak magically bypass rate limits. 
 - Jangan menyimpan PII yang tidak perlu. Jika menemukan kredensial/leak, laporkan secara bertanggung jawab ke pemilik/owner dan hapus data sensitif dari penyimpanan publik.
 
 ---
